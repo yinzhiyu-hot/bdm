@@ -1,0 +1,24 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>cn.wangoon.ms</groupId>
+        <artifactId>bdm</artifactId>
+        <version>${revision}-${changelist}</version>
+    </parent>
+    <description>基于Dubbo的,基础数据Api接口定义</description>
+    <name>bdm-api</name>
+    <artifactId>bdm-api</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>cn.wangoon.biz</groupId>
+            <artifactId>biz-common</artifactId>
+            <exclusions>
+                <exclusion>
+                    <artifactId>commons-io</artifactId>
+                    <groupId>commons-io</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+</project>

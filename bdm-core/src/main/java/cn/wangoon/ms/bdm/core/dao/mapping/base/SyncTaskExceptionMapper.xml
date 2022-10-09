@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--suppress ALL -->
+<mapper namespace="cn.wangoon.ms.bdm.core.dao.mapper.base.SyncTaskExceptionMapper">
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.wangoon.ms.bdm.core.domain.entity.base.SyncTaskException">
+        <id column="id" property="id"/>
+        <result column="task_id" property="taskId"/>
+        <result column="task_exception" property="taskException"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id,
+        task_id,
+        task_exception
+    </sql>
+    <insert id="batchInsert" keyColumn="id" keyProperty="id" parameterType="map" useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into sync_task_exception
+        (task_id, task_exception)
+        values
+        <foreach collection="list" item="item" separator=",">
+            (#{item.taskId,jdbcType=BIGINT}, #{item.taskException,jdbcType=VARCHAR})
+        </foreach>
+    </insert>
+</mapper>

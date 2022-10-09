@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.wangoon.ms.bdm.core.dao.mapper.base.SysLogMapper">
+    <resultMap id="BaseResultMap" type="cn.wangoon.ms.bdm.core.domain.entity.base.SysLog">
+        <!--@mbg.generated-->
+        <!--@Table sys_log-->
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="business_type" jdbcType="VARCHAR" property="businessType"/>
+        <result column="business_key" jdbcType="VARCHAR" property="businessKey"/>
+        <result column="message" jdbcType="VARCHAR" property="message"/>
+        <result column="record_date" jdbcType="VARCHAR" property="recordDate"/>
+        <result column="ts" jdbcType="TIMESTAMP" property="ts"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, business_type,business_key,message, record_date, ts
+    </sql>
+
+    <delete id="dataCarryForward" parameterType="String">
+        <![CDATA[
+        DELETE
+        FROM sys_log
+        WHERE record_date <= #{recordDate,jdbcType=VARCHAR}
+        ]]>
+    </delete>
+
+    <insert id="batchInsert" keyColumn="id" keyProperty="id" parameterType="map" useGeneratedKeys="true">
+        <!--@mbg.generated-->
+        insert into sys_log
+        (business_type, business_key, message, record_date, ts)
+        values
+        <foreach collection="list" item="item" separator=",">
+            (#{item.businessType,jdbcType=VARCHAR}, #{item.businessKey,jdbcType=VARCHAR}, #{item.message,jdbcType=VARCHAR},
+            #{item.recordDate,jdbcType=DATE}, #{item.ts,jdbcType=TIMESTAMP})
+        </foreach>
+    </insert>
+</mapper>
