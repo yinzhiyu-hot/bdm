@@ -51,7 +51,7 @@ public class DefaultExceptionAdviceConfig {
     }
 
     /**
-     * @Description 所有异常统一处理 返回状态码:400
+     * @Description 参数校验异常统一处理 返回状态码:400
      * @Remark
      * @Params ==>
      * @Param e

@@ -43,6 +43,7 @@
         <spring-boot-starter-data-redis.version>2.2.6.RELEASE</spring-boot-starter-data-redis.version>
         <springfox-swagger2.version>2.9.2</springfox-swagger2.version>
         <swagger-bootstrap-ui.version>1.9.6</swagger-bootstrap-ui.version>
+        <transmittable-thread-local.version>2.11.0</transmittable-thread-local.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -71,6 +72,19 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-web</artifactId>
                 <version>${spring-boot.version}</version>
+            </dependency>
+
+            <!-- spring boot test -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>transmittable-thread-local</artifactId>
+                <version>${transmittable-thread-local.version}</version>
             </dependency>
 
             <!-- 数据库相关  mysql，mybatis，shardingsphere，HikariCP -->
