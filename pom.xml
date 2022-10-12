@@ -44,6 +44,10 @@
         <springfox-swagger2.version>2.9.2</springfox-swagger2.version>
         <swagger-bootstrap-ui.version>1.9.6</swagger-bootstrap-ui.version>
         <transmittable-thread-local.version>2.11.0</transmittable-thread-local.version>
+        <forest-spring-boot-starter.version>1.5.26</forest-spring-boot-starter.version>
+        <retrofit.version>2.9.0</retrofit.version>
+        <thymeleaf-spring5.version>3.0.15.RELEASE</thymeleaf-spring5.version>
+        <thymeleaf-extras-java8time.version>3.0.4.RELEASE</thymeleaf-extras-java8time.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -61,10 +65,20 @@
             </dependency>
 
             <!-- spring boot thymeleaf -->
+            <!--            <dependency>-->
+            <!--                <groupId>org.springframework.boot</groupId>-->
+            <!--                <artifactId>spring-boot-starter-thymeleaf</artifactId>-->
+            <!--                <version>${spring-boot-starter-thymeleaf.version}</version>-->
+            <!--            </dependency>-->
             <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-thymeleaf</artifactId>
-                <version>${spring-boot-starter-thymeleaf.version}</version>
+                <groupId>org.thymeleaf</groupId>
+                <artifactId>thymeleaf-spring5</artifactId>
+                <version>${thymeleaf-spring5.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.thymeleaf.extras</groupId>
+                <artifactId>thymeleaf-extras-java8time</artifactId>
+                <version>${thymeleaf-extras-java8time.version}</version>
             </dependency>
 
             <!-- spring boot web -->
@@ -191,6 +205,23 @@
                 <groupId>com.github.xiaoymin</groupId>
                 <artifactId>swagger-bootstrap-ui</artifactId>
                 <version>${swagger-bootstrap-ui.version}</version>
+            </dependency>
+
+            <!-- 声明式HTTP客户端框架 -->
+            <dependency>
+                <groupId>com.dtflys.forest</groupId>
+                <artifactId>forest-spring-boot-starter</artifactId>
+                <version>${forest-spring-boot-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.squareup.retrofit2</groupId>
+                <artifactId>retrofit</artifactId>
+                <version>${retrofit.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.squareup.retrofit2</groupId>
+                <artifactId>converter-gson</artifactId>
+                <version>${retrofit.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
